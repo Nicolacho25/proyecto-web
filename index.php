@@ -16,9 +16,9 @@
                 <ul>
                     <li><a href="#">Ingresar</a>
                         <ul>
-                            <li><input type="text" placeholder="Usuario"></li>
-                            <li><input type="password" placeholder="Contraseña"></li>
-                            <li><button>Ingresar</button></li>
+                            <li><input id="NombreI" type="text" placeholder="Usuario"></li>
+                            <li><input id="PasswordI" type="password" placeholder="Contraseña"></li>
+                            <li><button id="btnI">Ingresar</button></li>
                         </ul>
                     </li>
                     <li><a href="#">Registro</a>
@@ -40,7 +40,13 @@
             </nav>
         </div>
     </header>
+    <!-- Trigger/Open The Modal -->
 
+
+<!-- The Modal -->
+<div id="div"> 
+    
+</div>
     <!-- Carrusel centrado -->
     <div class="carousel-container">
         <div class="carousel">

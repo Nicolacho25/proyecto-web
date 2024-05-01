@@ -1,7 +1,8 @@
 let currentIndex = 0;
 const images = document.querySelectorAll('.carousel img');
 const totalImages = images.length;
-const btn = document.getElementById("btnR");
+const btnR = document.getElementById("btnR");
+const btnI = document.getElementById("btnI");
 var name;
 function showImage(index) {
     images.forEach((image, i) => {
@@ -28,9 +29,14 @@ showImage(currentIndex);
 // Cambiar a la siguiente imagen cada 3 segundos (ajusta según necesites)
 setInterval(nextImage, 3000);
 
-btn.addEventListener("click",function(){
+btnR.addEventListener("click",function(){
     insertUser();
-    
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+});
+
+btnI.addEventListener("click", function(){
+    checkUser();
 });
 
 function insertUser(){
@@ -44,12 +50,29 @@ function insertUser(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            alert(this.responseText);
-            var modal = document.getDocumentById("myModal");
-            modal.style.display = "block";
+            document.getElementById("div").innerHTML = this.responseText;
+            
         }
         
+        
     };
-    xmlhttp.open("POST","Connection.php?nombre=" + nombre + "&apellido=" + apellido + "&direccion=" + direccion + "&telefono=" + telefono + "&correo=" + correo + "&contraseña=" + contraseña,true);
+    xmlhttp.open("POST","LogOut.php?nombre=" + nombre + "&apellido=" + apellido + "&direccion=" + direccion + "&telefono=" + telefono + "&correo=" + correo + "&contraseña=" + contraseña,true);
+    xmlhttp.send();
+}
+
+
+
+
+function checkUser(){
+    var nombre = document.getElementById("NombreI").value;
+    var password = document.getElementById("PasswordI").value;
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            alert(this.responseText);
+        }
+    };
+    xmlhttp.open("POST","LogIn.php?nombre=" + nombre +"&contraseña=" + password, true);
     xmlhttp.send();
 }

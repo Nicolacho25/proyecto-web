@@ -7,6 +7,7 @@ class Connection {
     function __construct(string $databaseName, string $userName){
         $this->databaseName = $databaseName;
         $this->userName = $userName;
+        echo "created Connection";
     }
     
     private function openConnection(){
@@ -31,7 +32,7 @@ class Connection {
         try{
         $conn = $this->openConnection();
         $query = "INSERT INTO USUARIOS (ID,NOMBRE,APELLIDO,DIRECCION,TELEFONO,CONTRASEÑA,EMAIl) VALUES (1,:NOMBRE,:APEELLIDO,:DIRECCION,:TELEFONO,:CONTRASENA,:EMAIL);";
-        $stm = $conn->prepare("INSERT INTO USUARIOS (ID,NOMBRE,APELLIDO,DIRECCION,TELEFONO,CONTRASEÑA,EMAIl) VALUES (41,?,?,?,?,?,?)");
+        $stm = $conn->prepare("INSERT INTO USUARIOS (NOMBRE,APELLIDO,DIRECCION,TELEFONO,CONTRASEÑA,EMAIl) VALUES (?,?,?,?,?,?)");
         $NOMBRE = $NOMBREINSERT;
         $APELLIDO = $APELLIDOINSERT;
         $DIRECCION = $DIRECCIONINSERT;
@@ -51,6 +52,7 @@ class Connection {
         return 1;
         } catch(PDOException $e){
             echo  $e->getMessage();
+            return 0;
         }
     }
     
@@ -69,12 +71,15 @@ class Connection {
         if($res > 0){
             echo "true";
             echo $res;
+            return true;
         }
         else{
             echo "false";
+            return false;
         }
         } catch(PDOException $pdoe){
             echo "error";
+            return false;
         }
         
            
@@ -102,7 +107,5 @@ class Connection {
 }
 
 
-$Connection1 = new Connection("shipment_fast","root");
-$Connection1->insertIntoUsuarios($_REQUEST['nombre'], $_REQUEST["apellido"], $_REQUEST["direccion"], (INT)$_REQUEST["telefono"], $_REQUEST["contraseña"], $_REQUEST["correo"])
 ?>
 
