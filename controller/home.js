@@ -73,6 +73,6 @@ function checkUser(){
             alert(this.responseText);
         }
     };
-    xmlhttp.open("POST","LogIn.php?nombre=" + nombre +"&contraseña=" + password, true);
+    xmlhttp.open("POST","./model/LogIn.php?nombre=" + nombre +"&contraseña=" + password, true);
     xmlhttp.send();
 }

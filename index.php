@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="./views/home.css">
 </head>
 <body>
     <header class="header-upper">
@@ -50,9 +50,9 @@
     <!-- Carrusel centrado -->
     <div class="carousel-container">
         <div class="carousel">
-            <img src="inam1.png" alt="inam1">
-            <img src="inam2.png" alt="inam2">
-            <img src="inam3.png" alt="inam3">
+            <img src="./img/inam1.png" alt="inam1">
+            <img src="./img/inam2.png" alt="inam2">
+            <img src="./img/inam3.png" alt="inam3">
         </div>
     </div>
     <!-- Recuadro azul con label "Rastrear" y texto con botón -->
@@ -71,7 +71,7 @@
         <!-- Contenido del footer inferior -->
     </footer>
     
-    <script src="home.js"></script>
+    <script src="./controller/home.js"></script>
 </body>
 </html>
 
