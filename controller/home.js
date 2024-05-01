@@ -16,7 +16,7 @@ function showImage(index) {
 function nextImage() {
     currentIndex = (currentIndex + 1) % totalImages;
     showImage(currentIndex);
-}
+}s
 
 function prevImage() {
     currentIndex = (currentIndex - 1 + totalImages) % totalImages;
@@ -31,8 +31,7 @@ setInterval(nextImage, 3000);
 
 btnR.addEventListener("click",function(){
     insertUser();
-    var modal = document.getElementById("myModal");
-    modal.style.display = "block";
+    alert("registro");
 });
 
 btnI.addEventListener("click", function(){
@@ -56,7 +55,7 @@ function insertUser(){
         
         
     };
-    xmlhttp.open("POST","LogOut.php?nombre=" + nombre + "&apellido=" + apellido + "&direccion=" + direccion + "&telefono=" + telefono + "&correo=" + correo + "&contraseña=" + contraseña,true);
+    xmlhttp.open("POST","./controller/LogOut.php?nombre=" + nombre + "&apellido=" + apellido + "&direccion=" + direccion + "&telefono=" + telefono + "&correo=" + correo + "&contraseña=" + contraseña,true);
     xmlhttp.send();
 }
 
@@ -76,3 +75,5 @@ function checkUser(){
     xmlhttp.open("POST","./model/LogIn.php?nombre=" + nombre +"&contraseña=" + password, true);
     xmlhttp.send();
 }
+
+
