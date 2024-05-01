@@ -9,7 +9,7 @@ class Connection {
         $this->userName = $userName;
     }
     
-    function openConnection(){
+    private function openConnection(){
         try{
             $con = new PDO("mysql:host=localhost:3307;dbname=$this->databaseName", $this->userName);
             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,19 +18,91 @@ class Connection {
         } catch (PDOException $pdoe) {
             echo "no connect";
         }
+        
+  
     }
     
-    function closeConnection(PDO $conn){
+    private function closeConnection(PDO $conn){
         $conn = null;
         echo "connection close";
+    } 
+    
+    function insertIntoUsuarios($NOMBREINSERT,$APELLIDOINSERT,$DIRECCIONINSERT,$TELEFONOINSERT,$CONTRASENAINSERT,$EMAILINSERT){
+        try{
+        $conn = $this->openConnection();
+        $query = "INSERT INTO USUARIOS (ID,NOMBRE,APELLIDO,DIRECCION,TELEFONO,CONTRASEÑA,EMAIl) VALUES (1,:NOMBRE,:APEELLIDO,:DIRECCION,:TELEFONO,:CONTRASENA,:EMAIL);";
+        $stm = $conn->prepare("INSERT INTO USUARIOS (ID,NOMBRE,APELLIDO,DIRECCION,TELEFONO,CONTRASEÑA,EMAIl) VALUES (41,?,?,?,?,?,?)");
+        $NOMBRE = $NOMBREINSERT;
+        $APELLIDO = $APELLIDOINSERT;
+        $DIRECCION = $DIRECCIONINSERT;
+        $TELEFONO = $TELEFONOINSERT;
+        $CONTRASENA = $CONTRASENAINSERT;
+        $EMAIL = $EMAILINSERT;
+        $stm->bindParam(1, $NOMBRE);
+        $stm->bindParam(2,$APELLIDO);
+        $stm->bindParam(3,$DIRECCION);
+        $stm->bindParam(4,$TELEFONO);
+        $stm->bindParam(5,$CONTRASENA);
+        $stm->bindParam(6,$EMAIL);
+        echo "here";
+        $stm->execute();
+        $this->closeConnection($conn);
+        echo "INSERT INTO CORRECT";
+        return 1;
+        } catch(PDOException $e){
+            echo  $e->getMessage();
+        }
     }
     
+
+    function checkUser(string $user,string $passsword){
+        try{
+        $con = $this->openConnection();
+        $query = "SELECT NOMBRE FROM USUARIOS WHERE NOMBRE = ? AND CONTRASEÑA = ?";
+        $stm = $con->prepare($query);
+        $USUARIO = $user;
+        $CONTRASENA = $passsword;
+        $stm->bindParam(1,$USUARIO);
+        $stm->bindParam(2,$CONTRASENA);
+        $stm->execute();
+        $res = $stm->rowCount();
+        if($res > 0){
+            echo "true";
+            echo $res;
+        }
+        else{
+            echo "false";
+        }
+        } catch(PDOException $pdoe){
+            echo "error";
+        }
+        
+           
+    }
     
+    function rastrear(int $id){
+        try{
+            $con = $this->openConnection();
+            $query = "SELECT COUNT(*) FROM PAQUETE WHERE ID = ?";
+            $stm = $con->prepare($query);
+            $ID = $id;
+            $stm->bindParam(1,$ID);
+            $stm->execute();
+            if($stm->rowCount() > 0){
+                echo "estado:";
+            }
+            else{
+                echo "envio no existe";
+            }
+        } catch (Exception $ex) {
+
+        }
+    }
     
 }
 
-$Connection1 = new Connection("test2","root");
-$openCon = $Connection1->openConnection();
-$Connection1->closeConnection($openCon);
-echo "all sucesfull created" + "cadenas";
+
+$Connection1 = new Connection("shipment_fast","root");
+$Connection1->insertIntoUsuarios($_REQUEST['nombre'], $_REQUEST["apellido"], $_REQUEST["direccion"], (INT)$_REQUEST["telefono"], $_REQUEST["contraseña"], $_REQUEST["correo"])
 ?>
+

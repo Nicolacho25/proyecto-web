@@ -23,16 +23,16 @@
                     </li>
                     <li><a href="#">Registro</a>
                         <ul>
-                            <form method="post" action="Connection.php">
-                                <li><input type="text" placeholder="Nombre"></li>
-                                <li><input type="text" placeholder="Apellidos"></li>
-                                <li><input type="text" placeholder="Dirección"></li>
-                                <li><input type="tel" placeholder="Teléfono"></li>
-                                <li><input type="email" placeholder="Correo electrónico"></li>
-                                <li><input type="password" placeholder="Contraseña"></li>
+                            
+                                <li><input id="Nombre" type="text" name="name" placeholder  ="Nombre"></li>
+                                <li><input id="Apellido"type="text" placeholder="Apellidos"></li>
+                                <li><input id="Direccion"type="text" placeholder="Dirección"></li>
+                                <li><input id="Telefono"type="tel" placeholder="Teléfono"></li>
+                                <li><input id="Correo"type="email" placeholder="Correo electrónico"></li>
+                                <li><input id="Contraseña" type="password" placeholder="Contraseña"></li>
                                 <li><input type="password" placeholder="Confirmar contraseña"></li>
-                                <li><button>Registrar</button></li>
-                            </form>
+                                <li><button id="btnR">Registrar</button></li>
+                            
                       </ul>
                     </li>
                     <li><img src="logo2.png" alt="logo2"></li> 
@@ -52,12 +52,13 @@
     <!-- Recuadro azul con label "Rastrear" y texto con botón -->
     <div class="container">
         <div class="blue-box">
-            <div class="small-box">
+            <div id="test" class="small-box">
                 <label for="rastrear">Rastrear</label>
             </div>
             <input type="text" id="rastrear" placeholder="Ingresa el código">
             <button>Buscar</button>
         </div>
+        
     </div>
     
     <footer class="footer-lower">
