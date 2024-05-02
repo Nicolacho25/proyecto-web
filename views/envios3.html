@@ -1,0 +1,57 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="envios.css">
+
+    <title>Envios</title>
+</head>
+<body>
+    <header class="header-upper">
+        <div class="container__menu">
+            <a href="#" class="logo">
+                <img src="homeimagen.png" alt="Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Historial</a></li>
+                    <li><a href="#">Envios</a></li>
+                   <li><a href="#">Cerrar sesion</a></li>
+                   <li class="logo"><img src="logout.png" alt="logout"></li>
+                    <li class="logo"><img src="logo2.png" alt="logo2"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="contenedor-encuesta">
+        <div class="imagen-encuesta">
+          <img src="img1.png" alt="enviosimg">
+        </div>
+        <div class="encuesta">
+          <ul>
+            <h3 style="color: 006376;">Fecha de envio</h3>
+            <div class="seleccionador-fecha">
+                <label for="fecha-envio"></label>
+                <input type="date" id="fecha-envio" name="fecha-envio">
+              </div>
+
+
+            <li><h3 style="color: 006376;">Metodo de pago</h3>
+                <select  id="unidad-peso" class="seleccionador-peso">
+                    <option value="c.c"><a href="Validación tarjeta"></a>T.C</option>
+                    <option value="cash">Efectivo</option>
+                    
+                </select>
+            
+            </li>
+           
+            <li><a href="validacion"></a><button id="btnSiguiente">Siguiente</button></li>
+          </ul>
+        </div>
+      </div>
+    <footer class="footer-lower">
+        <!-- Contenido del footer inferior -->
+    </footer>
+    <script src="envios.js"></script>
+</body>
+</html>
