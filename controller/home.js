@@ -3,7 +3,7 @@ const images = document.querySelectorAll('.carousel img');
 const totalImages = images.length;
 const btnR = document.getElementById("btnR");
 const btnI = document.getElementById("btnI");
-const btnRt = document.getElementById("rastreo");
+const btnRt = document.getElementById("btnRt");
 function showImage(index) {
     images.forEach((image, i) => {
         if (i === index) {
@@ -41,8 +41,11 @@ btnI.addEventListener("click", function(){
 
 btnRt.addEventListener("click",function(){
     rastreoPaquete();
-    document.getElementById("id01").style.display = "block"; 
-})
+    document.getElementById("id01").style.display = "block";
+    alert("rastreando");
+});
+
+
 function insertUser(){
     var nombre = document.getElementById("Nombre").value;
     var apellido = document.getElementById("Apellido").value;
@@ -85,14 +88,14 @@ function checkUser(){
 
 function rastreoPaquete(){
     var rastreoI = document.getElementById("rastreoI").value;
-    
+    console.log("here");
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechage = function(){
+    xmlhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
             document.getElementById("modal").innerHTML = this.responseText;
         }
-    };
-    xmlhttp.open("POST","./model/Connection.php",true);
+    }
+    xmlhttp.open("POST","./model/Connection.php?id=" + rastreoI,true);
     xmlhttp.send();
 }
 

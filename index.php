@@ -72,8 +72,8 @@
             <div id="test" class="small-box">
                 <label for="rastrear">Rastrear</label>
             </div>
-            <input id="rastreoI" type="text" id="rastrear" placeholder="Ingresa el código">
-            <button id='rastreo'>Buscar</button>
+            <input id="rastreoI" type="text" placeholder="Ingresa el código">
+            <button id='btnRt'>Buscar</button>
         </div>
         
     </div>
