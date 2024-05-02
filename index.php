@@ -26,10 +26,10 @@
                         <ul>
                             
                                 <li><input id="Nombre" type="text" name="name" placeholder  ="Nombre"></li>
-                                <li><input id="Apellido"type="text" placeholder="Apellidos"></li>
-                                <li><input id="Direccion"type="text" placeholder="Dirección"></li>
-                                <li><input id="Telefono"type="tel" placeholder="Teléfono"></li>
-                                <li><input id="Correo"type="email" placeholder="Correo electrónico"></li>
+                                <li><input id="Apellido" type="text" placeholder="Apellidos"></li>
+                                <li><input id="Direccion" type="text" placeholder="Dirección"></li>
+                                <li><input id="Telefono" type="tel" placeholder="Teléfono"></li>
+                                <li><input id="Correo" type="email" placeholder="Correo electrónico"></li>
                                 <li><input id="Contraseña" type="password" placeholder="Contraseña"></li>
                                 <li><input type="password" placeholder="Confirmar contraseña"></li>
                                 <li><button id="btnR">Registrar</button></li>
@@ -42,7 +42,8 @@
         </div>
     </header>
     <!-- Trigger/Open The Modal -->
-
+    
+    <button id="thisis"> click</button>
 <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
         <header class="w3-container w3-teal" style="background-color: 'white'"> 

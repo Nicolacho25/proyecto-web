@@ -69,12 +69,13 @@ class Connection {
         $stm->execute();
         $res = $stm->rowCount();
         if($res > 0){
-            echo "true";
-            echo $res;
+            
+            echo '<a class="w3-button w3-black" href="newhtml.html">next</a>';
             return true;
         }
         else{
             echo "false";
+            echo '<a class="w3-button w3-black w3-disabled" href="#">Next</a>';
             return false;
         }
         } catch(PDOException $pdoe){
@@ -88,25 +89,40 @@ class Connection {
     function rastrear(int $id){
         try{
             $con = $this->openConnection();
-            $query = "SELECT VALOR_DECLARADO FROM PAQUETE WHERE ID = ?";
+            $query = "SELECT ESTADO FROM PAQUETE WHERE ID = ?";
             $stm = $con->prepare($query);
             $ID = $id;
             $stm->bindParam(1,$ID);
             $stm->execute();
             if($stm->rowCount() > 0){
-                $res = $stm->fetchAll();
-                foreach($res as $r){
-                    echo "el valor declarado es:" . $r['VALOR_DECLARADO'];
+                $res = $stm->fetch();
+                if($res["ESTADO"] == 0){
+                    echo "estado 1";
+                }
+                else{
+                    if($res["ESTADO"] == 1){
+                        echo "estado 2";
+                    }
+                    else{
+                        if($res["ESTADO"] == 2){
+                            echo "estado 3";
+                        }
+                        else{
+                            echo "estado 4";
+                        }
+                    }
                 }
             }
             else{
                 echo " < 0";
             }
             
-        } catch (Exception $ex) {
+        } catch (PDOException $ex) {
             echo "error";
         }
     }
+    
+    
     
 }
 

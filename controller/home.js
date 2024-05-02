@@ -4,6 +4,7 @@ const totalImages = images.length;
 const btnR = document.getElementById("btnR");
 const btnI = document.getElementById("btnI");
 const btnRt = document.getElementById("btnRt");
+const btnT = document.getElementById("thisis");
 function showImage(index) {
     images.forEach((image, i) => {
         if (i === index) {
@@ -37,6 +38,8 @@ btnR.addEventListener("click",function(){
 
 btnI.addEventListener("click", function(){
     checkUser();
+    document.getElementById("id01").style.display = "block";
+    
 });
 
 btnRt.addEventListener("click",function(){
@@ -46,6 +49,9 @@ btnRt.addEventListener("click",function(){
 });
 
 
+btn.addEventListener("click",function(){
+    location.href("./newhtml.html");
+})
 function insertUser(){
     var nombre = document.getElementById("Nombre").value;
     var apellido = document.getElementById("Apellido").value;
@@ -78,7 +84,7 @@ function checkUser(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            alert(this.responseText);
+            document.getElementById("modal").innerHTML = this.responseText;
         }
     };
     xmlhttp.open("POST","./model/LogIn.php?nombre=" + nombre +"&contraseña=" + password, true);
