@@ -110,7 +110,4 @@ class Connection {
     
 }
 
-$con = new Connection("shipment_fast","root");
-$con->rastrear(12345)
 ?>
-<script src="../controller/home.js" type="text/javascript"></script>

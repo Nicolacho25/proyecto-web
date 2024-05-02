@@ -93,9 +93,10 @@ function rastreoPaquete(){
     xmlhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
             document.getElementById("modal").innerHTML = this.responseText;
+            console.log("hereee");
         }
     }
-    xmlhttp.open("POST","./model/Connection.php?id=" + rastreoI,true);
+    xmlhttp.open("POST","./model/Rastrea.php?id=" + rastreoI,true);
     xmlhttp.send();
 }
 
