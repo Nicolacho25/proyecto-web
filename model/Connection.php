@@ -88,24 +88,29 @@ class Connection {
     function rastrear(int $id){
         try{
             $con = $this->openConnection();
-            $query = "SELECT COUNT(*) FROM PAQUETE WHERE ID = ?";
+            $query = "SELECT VALOR_DECLARADO FROM PAQUETE WHERE ID = ?";
             $stm = $con->prepare($query);
             $ID = $id;
             $stm->bindParam(1,$ID);
             $stm->execute();
             if($stm->rowCount() > 0){
-                echo "estado:";
+                $res = $stm->fetchAll();
+                foreach($res as $r){
+                    echo "el valor declarado es:" . $r['VALOR_DECLARADO'];
+                }
             }
             else{
-                echo "envio no existe";
+                echo " < 0";
             }
+            
         } catch (Exception $ex) {
-
+            echo "error";
         }
     }
     
 }
 
-
+$con = new Connection("shipment_fast","root");
+$con->rastrear(12345)
 ?>
-
+<script src="../controller/home.js" type="text/javascript"></script>

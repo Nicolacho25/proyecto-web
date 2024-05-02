@@ -3,7 +3,7 @@ const images = document.querySelectorAll('.carousel img');
 const totalImages = images.length;
 const btnR = document.getElementById("btnR");
 const btnI = document.getElementById("btnI");
-var name;
+const btnRt = document.getElementById("btnRt");
 function showImage(index) {
     images.forEach((image, i) => {
         if (i === index) {
@@ -31,13 +31,20 @@ setInterval(nextImage, 3000);
 
 btnR.addEventListener("click",function(){
     insertUser();
-    var modal = document.getElementById("myModal");
-    modal.style.display = "block";
+    document.getElementById("id01").style.display = "block";
+    alert("registro");
 });
 
 btnI.addEventListener("click", function(){
     checkUser();
 });
+
+btnRt.addEventListener("click",function(){
+    rastreoPaquete();
+    document.getElementById("id01").style.display = "block";
+    alert("rastreando");
+});
+
 
 function insertUser(){
     var nombre = document.getElementById("Nombre").value;
@@ -46,17 +53,18 @@ function insertUser(){
     var telefono = document.getElementById("Telefono").value;
     var correo = document.getElementById("Correo").value;
     var contraseña = document.getElementById("Contraseña").value;
-    
+    console.log("here");
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            document.getElementById("div").innerHTML = this.responseText;
+            document.getElementById("modal").innerHTML = this.responseText;
+            
             
         }
         
         
     };
-    xmlhttp.open("POST","LogOut.php?nombre=" + nombre + "&apellido=" + apellido + "&direccion=" + direccion + "&telefono=" + telefono + "&correo=" + correo + "&contraseña=" + contraseña,true);
+    xmlhttp.open("POST","./model/LogOut.php?nombre=" + nombre + "&apellido=" + apellido + "&direccion=" + direccion + "&telefono=" + telefono + "&correo=" + correo + "&contraseña=" + contraseña,true);
     xmlhttp.send();
 }
 
@@ -76,3 +84,18 @@ function checkUser(){
     xmlhttp.open("POST","./model/LogIn.php?nombre=" + nombre +"&contraseña=" + password, true);
     xmlhttp.send();
 }
+
+
+function rastreoPaquete(){
+    var rastreoI = document.getElementById("rastreoI").value;
+    console.log("here");
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            document.getElementById("modal").innerHTML = this.responseText;
+        }
+    }
+    xmlhttp.open("POST","./model/Connection.php?id=" + rastreoI,true);
+    xmlhttp.send();
+}
+
