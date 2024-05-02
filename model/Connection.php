@@ -94,18 +94,20 @@ class Connection {
             $stm->bindParam(1,$ID);
             $stm->execute();
             if($stm->rowCount() > 0){
-                echo "estado:";
+                echo "> 0";
             }
             else{
-                echo "envio no existe";
+                echo " < 0";
             }
+            
         } catch (Exception $ex) {
-
+            echo "error";
         }
     }
     
 }
 
-
+$con = new Connection("shipment_fast","root");
+$con->rastrear(123456);
 ?>
-
+    

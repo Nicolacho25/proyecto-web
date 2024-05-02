@@ -10,8 +10,8 @@
 <body>
     <header class="header-upper">
         <div class="container__menu">
-            <a href="index.php.html" class="logo">
-                <img src="homeimagen.png" alt="Logo">
+            <a href="index.php" class="logo">
+                <img src="./img/homeimagen.png" alt="Logo">
             </a>
             <nav>
                 <ul>
@@ -36,24 +36,22 @@
                             
                       </ul>
                     </li>
-                    <li><img src="logo2.png" alt="logo2"></li> 
+                    <li><img src="./img/logo2.png" alt="logo2"></li> 
                 </ul>
             </nav>
         </div>
     </header>
     <!-- Trigger/Open The Modal -->
 
-  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Animated Modal</button>
 <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal"> 
+        <header class="w3-container w3-teal" style="background-color: 'white'"> 
         <span onclick="document.getElementById('id01').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
-        <h2>Modal Header</h2>
+        <h2>Registro</h2>
       </header>
-      <div class="w3-container">
-        <p>Some text..</p>
-        <p>Some text..</p>
+      <div id="modal" class="w3-container">
+        
       </div>
       <footer class="w3-container w3-teal">
         <p>Modal Footer</p>
@@ -74,8 +72,8 @@
             <div id="test" class="small-box">
                 <label for="rastrear">Rastrear</label>
             </div>
-            <input type="text" id="rastrear" placeholder="Ingresa el código">
-            <button>Buscar</button>
+            <input id="rastreoI" type="text" id="rastrear" placeholder="Ingresa el código">
+            <button id='rastreo'>Buscar</button>
         </div>
         
     </div>

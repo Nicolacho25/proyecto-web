@@ -3,7 +3,7 @@ const images = document.querySelectorAll('.carousel img');
 const totalImages = images.length;
 const btnR = document.getElementById("btnR");
 const btnI = document.getElementById("btnI");
-var name;
+const btnRt = document.getElementById("rastreo");
 function showImage(index) {
     images.forEach((image, i) => {
         if (i === index) {
@@ -16,7 +16,7 @@ function showImage(index) {
 function nextImage() {
     currentIndex = (currentIndex + 1) % totalImages;
     showImage(currentIndex);
-}s
+}
 
 function prevImage() {
     currentIndex = (currentIndex - 1 + totalImages) % totalImages;
@@ -31,6 +31,7 @@ setInterval(nextImage, 3000);
 
 btnR.addEventListener("click",function(){
     insertUser();
+    document.getElementById("id01").style.display = "block";
     alert("registro");
 });
 
@@ -38,6 +39,10 @@ btnI.addEventListener("click", function(){
     checkUser();
 });
 
+btnRt.addEventListener("click",function(){
+    rastreoPaquete();
+    document.getElementById("id01").style.display = "block"; 
+})
 function insertUser(){
     var nombre = document.getElementById("Nombre").value;
     var apellido = document.getElementById("Apellido").value;
@@ -45,17 +50,18 @@ function insertUser(){
     var telefono = document.getElementById("Telefono").value;
     var correo = document.getElementById("Correo").value;
     var contraseña = document.getElementById("Contraseña").value;
-    
+    console.log("here");
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            document.getElementById("div").innerHTML = this.responseText;
+            document.getElementById("modal").innerHTML = this.responseText;
+            
             
         }
         
         
     };
-    xmlhttp.open("POST","./controller/LogOut.php?nombre=" + nombre + "&apellido=" + apellido + "&direccion=" + direccion + "&telefono=" + telefono + "&correo=" + correo + "&contraseña=" + contraseña,true);
+    xmlhttp.open("POST","./model/LogOut.php?nombre=" + nombre + "&apellido=" + apellido + "&direccion=" + direccion + "&telefono=" + telefono + "&correo=" + correo + "&contraseña=" + contraseña,true);
     xmlhttp.send();
 }
 
@@ -76,4 +82,17 @@ function checkUser(){
     xmlhttp.send();
 }
 
+
+function rastreoPaquete(){
+    var rastreoI = document.getElementById("rastreoI").value;
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechage = function(){
+        if(this.readyState == 4 && this.status == 200){
+            document.getElementById("modal").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("POST","./model/Connection.php",true);
+    xmlhttp.send();
+}
 
