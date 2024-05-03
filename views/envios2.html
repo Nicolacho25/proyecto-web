@@ -1,0 +1,68 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="envios.css">
+
+    <title>Envios</title>
+</head>
+<body>
+    <header class="header-upper">
+        <div class="container__menu">
+            <a href="#" class="logo">
+                <img src="homeimagen.png" alt="Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Historial</a></li>
+                    <li><a href="#">Envios</a></li>
+                   <li><a href="#">Cerrar sesion</a></li>
+                   <li class="logo"><img src="logout.png" alt="logout"></li>
+                    <li class="logo"><img src="logo2.png" alt="logo2"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="contenedor-encuesta">
+        <div class="imagen-encuesta">
+          <img src="img1.png" alt="enviosimg">
+        </div>
+        <div class="encuesta">
+          <ul>
+            <h3 style="color: 006376;">Medidas</h3>
+                <ul>
+                   <li><input type="text" placeholder="Peso del paquete">
+                    <select  id="unidad-peso" class="seleccionador-peso">
+                        <option value="kg">kg</option>
+                        <option value="gr">Gr</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                
+                </li>
+                 
+
+                    <li><input type="text" placeholder="Alto"></li>
+                    <select  id="unidad-peso" class="seleccionador-peso">
+                        <option value="mt">Mt</option>
+                        <option value="cm">Cm</option>
+                    </select>
+                    <li><input type="text" placeholder="Ancho"></li>
+                    <select  id="unidad-peso" class="seleccionador-peso">
+                        <option value="mt">Mt</option>
+                        <option value="cm">Cm</option>
+                    </select>
+                </ul>
+                <h3 style="color: 006376;">Valor declarado</h3>        
+                <ul>
+                    <li><input type="text" placeholder="Agregar un valor al paquete $"></li>
+                </ul>
+                <li><a href="/envios_view/envios3.html"><button>Siguiente</button></a></li>
+          </ul>
+        </div>
+      </div>
+    <footer class="footer-lower">
+        <!-- Contenido del footer inferior -->
+    </footer>
+    <script src="envios.js"></script>
+</body>
+</html>
