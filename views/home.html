@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <header1 class="header-upper">
+        <div class="container__menu">
+            <a href="#" class="logo">
+                <img src="images/homeimagen.png" alt="Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Ingresar</a>
+                        <ul>
+                            <form id="loginForm">
+                                <li><input type="text" name="usuario" placeholder="Usuario"></li>
+                                <li><input type="password" name="contrasena" placeholder="Contraseña"></li>
+                                <li><button type="submit">Ingresar</button></li>
+                            </form>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Registro</a>
+                        <ul>
+                            <form id="registerForm">
+                                <li><input type="text" name="nombre" placeholder="Nombre"></li>
+                                <li><input type="text" name="apellidos" placeholder="Apellidos"></li>
+                                <li><input type="text" name="direccion" placeholder="Dirección"></li>
+                                <li><input type="tel" name="telefono" placeholder="Teléfono"></li>
+                                <li><input type="email" name="correo" placeholder="Correo electrónico"></li>
+                                <li><input type="password" name="contrasena" placeholder="Contraseña"></li>
+                                <li><input type="password" name="confirmar_contrasena" placeholder="Confirmar contraseña"></li>
+                                <li><button type="submit">Registrar</button></li>
+                            </form>
+                        </ul>
+                    </li>
+                    <li><img src="images/logo2.png" alt="logo2"></li> 
+                </ul>
+            </nav>
+        </div>
+    </header1>
+    <header2 class="header-upper">
+        <div class="container__menu">
+            <a href="#" class="logo">
+                <img src="images/homeimagen.png" alt="Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Historial</a></li>
+                    <li><a href="#">Envios</a></li>
+                    <li><a href="#">Cerrar sesión <img src="images/logout.png" alt="logout"></a></li>
+                    <li><img src="images/logo2.png" alt="logo2"></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </header2>
+
+    <!-- Carrusel centrado -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="images/inam1.png" alt="inam1">
+            <img src="images/inam2.png" alt="inam2">
+            <img src="images/inam3.png" alt="inam3">
+        </div>
+    </div>
+
+    <!-- Recuadro azul con label "Rastrear" y texto con botón -->
+    <div class="container">
+        <div class="blue-box">
+            <div class="small-box">
+                <label for="rastrear">Rastrear</label>
+            </div>
+            <input type="text" id="rastrear" placeholder="Ingresa el código">
+            <button>Buscar</button>
+        </div>
+    </div>
+
+    <footer class="footer-lower">
+        <!-- Contenido del footer inferior -->
+    </footer>
+
+    <script src="home.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
