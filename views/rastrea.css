@@ -1,0 +1,197 @@
+/* Establecer estilos por defecto para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* Estilos para la barra de navegación superior */
+.header-upper {
+    width: 100%;
+    height: 70px;
+    background-color: #F5BA53;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos para el contenedor del menú */
+.container__menu {
+    width: 100%;
+    height: 70px;
+    background-color: #F5BA53;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos para la navegación */
+nav {
+    height: 100%;
+}
+
+nav ul {
+    height: 100%;
+    display: flex;
+}
+
+nav ul li {
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+
+nav ul li:first-child {
+    margin-left: auto;
+}
+
+nav ul li a {
+    height: 100%;
+    display: flex;
+    color: #48698B;
+    padding: 14px;
+    text-transform: uppercase;
+    align-items: center;
+    transition: all 300ms ease;
+    justify-content: space-between;
+}
+
+nav ul li a:hover {
+    transform: scale(1.1);
+    background-color: #FCE8BC;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el logo */
+.logo img {
+    height: 100px; /* Tamaño ajustable de la imagen */
+    width: auto;
+    padding: 15px 0; /* Espacio entre la imagen y los enlaces */
+    height: 100%;
+    display: flex;
+    color: #48698B;
+    padding: 14px;
+    text-transform: uppercase;
+    align-items: center;
+    transition: all 300ms ease;    
+}
+
+/* Estilos para el menú desplegable */
+nav ul li ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 90px;
+    left: -85px;
+    padding: 14px 5px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    top: 70px;
+}
+
+/* Estilos para el menú desplegable: ajuste de tamaño de la imagen */
+.container__menu nav ul li a img {
+    width: 50px; /* Cambia este valor según el tamaño deseado */
+    height: auto; /* Auto para mantener la proporción */
+    margin-left: 10px;
+}
+
+/* Estilos para el segundo logo */
+.container__menu nav ul li  img {
+    height: 67px; /* Tamaño ajustable de la segunda imagen */
+    width: auto;
+    margin-left: 10px; 
+}
+
+/* Estilos para el footer inferior */
+.footer-lower {
+    width: 100%;
+    height: 100px;
+    background-color: #FCE8BC; /* Cambia el color según tu diseño */
+    color: black; /* Cambia el color del texto según tu diseño */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Establece la posición fija */
+    bottom: 0; /* Lo coloca en la parte inferior */
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos para el contenedor de imágenes */
+.image-container {
+    margin-top: 20px;
+}
+
+/* Estilos para las imágenes */
+.image-container img {
+    width:300px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    margin-left: 90px;
+}
+
+/* Estilos para la galería de imágenes */
+.gallery {
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center; /* Centra las imágenes */
+    overflow-x: auto; /* Permite desplazarse horizontalmente si el contenido supera el ancho */
+    scroll-snap-type: x mandatory; /* Hace que las imágenes se detengan al desplazarse */
+}
+
+.gallery ul {
+    list-style: none;
+    display: flex;
+    padding: 80px;
+    width: 1150px;
+    margin: 0;
+    border: 2px solid #000; /* Borde negro de 2px */
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    align-items: left;
+    
+}
+
+.gallery ul li {
+    margin-right: 10px;
+}
+
+.gallery ul li:last-child {
+    margin-right: 0;
+}
+
+/* Estilos para las imágenes individuales en la galería */
+.gallery ul li img {
+    width: 150px; /* Tamaño de las imágenes */
+    height: 150px;
+    cursor: pointer;
+    border: 2px solid #0097B2; /* Borde azul cuando está enfocado o activo */
+    padding: 10px; /* Espacio alrededor de la imagen */
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-left: 70px;
+}
+
+.gallery ul li img:focus,
+.gallery ul li img:active {
+    outline: none;
+}
